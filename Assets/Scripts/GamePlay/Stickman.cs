@@ -27,7 +27,7 @@ public class Stickman : MonoBehaviour
     [SerializeField] float winSpeed;
 
     private int lastBestPosSwung;           // Điểm vừa đu
-    private int lastBestPosSelected;        // Điểm đu gần đây nhất được chọn
+    private int lastBestPosSelected;        // Điểm đu gần nhất được chọn
     private int bestPos;                    // Điểm đu tốt nhất hiện tại
     private float bestDistance;
     private Vector3 actualJointPos;
@@ -145,7 +145,7 @@ public class Stickman : MonoBehaviour
 
     private void ChangeState()
     {
-        spriteRenderer.flipX = rb.velocity.x > 0.7 ? false : true;
+        spriteRenderer.flipX = rb.velocity.x > 0.7f ? false : true;
 
         if (rb.velocity.x > -0.7f && rb.velocity.x < 0.7f && gameObject.transform.position.y < actualJointPos.y)
             spriteRenderer.sprite = stopSprite;

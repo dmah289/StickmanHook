@@ -76,6 +76,12 @@ public class LevelManager : MonoBehaviour
         GameManager.instance.player.SetActive(true);
     }
 
+    IEnumerator WaitTrail()
+    {
+        yield return new WaitForSeconds(0.5f);
+        GameManager.instance.stickman.trailRenderer.enabled = true;
+    }
+
     public void NextLevel()
     {
         // Win Setup
@@ -86,7 +92,6 @@ public class LevelManager : MonoBehaviour
         GameManager.instance.winEffect.transform.SetParent(null);
 
         StartCoroutine(FinishLevel());
-
     }
 
     IEnumerator FinishLevel()
@@ -110,12 +115,6 @@ public class LevelManager : MonoBehaviour
         GameManager.instance.cameraFollow.Reset();
         
         
-    }
-
-    IEnumerator WaitTrail()
-    {
-        yield return new WaitForSeconds(0.3f);
-        GameManager.instance.stickman.trailRenderer.enabled = true;
     }
 
     public void CollectPool()
